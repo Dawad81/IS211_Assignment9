@@ -18,12 +18,10 @@ for player in Player_data:
     player_position = player.contents[1].get_text()
     player_team = player.contents[2].get_text()
     player_tds = player.contents[6].get_text()
+    PlayerDict = {'Name': player_name,
+                  'Team': player_team,
+                  'Players Position': player_position,
+                  'Touchdowns': player_tds}
 
-    #print player_name
-    #print player_position
-    #print player_team
-    #print player_tds
-
-    PlayerDict = {'Name': player_name, 'Team': player_team, 'Players Position': player_position, 'Touchdowns': player_tds}
-
-    print PlayerDict
+    print json.dumps(PlayerDict, sort_keys=True)
+    print
