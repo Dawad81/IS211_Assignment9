@@ -15,28 +15,22 @@ soup = BeautifulSoup(page.read(), 'lxml')
 
 Player_data = soup.find_all(class_={'row1', 'row2'})
 for player in Player_data:
-    player_stats0 = player.contents[0].get_text()
-    player_stats1 = player.contents[1].get_text()
-    player_stats2 = player.contents[2].get_text()
+    player_name = player.contents[0].get_text()
+    player_position = player.contents[1].get_text()
+    player_team = player.contents[2].get_text()
     player_stats3 = player.contents[3].get_text()
     player_stats4 = player.contents[4].get_text()
     player_stats5 = player.contents[5].get_text()
-    player_stats6 = player.contents[6].get_text()
+    player_tds = player.contents[6].get_text()
     player_stats7 = player.contents[7].get_text()
     player_stats8 = player.contents[8].get_text()
     player_stats9 = player.contents[9].get_text()
     player_stats10 = player.contents[10].get_text()
-    print player_stats0
-    print player_stats1
-    print player_stats2
-    print player_stats3
-    print player_stats4
-    print player_stats5
-    print player_stats6
-    print player_stats7
-    print player_stats8
-    print player_stats9
-    print player_stats10
+    player_stats11 = player.contents[11].get_text()
+    print player_name
+    print player_position
+    print player_team
+    print player_tds
 #table = soup.find_all('tr', 'td')
 
 #for table_data in table:
