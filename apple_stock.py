@@ -21,7 +21,7 @@ for table in apple_data:
         date= table_data[0].get_text()
         closing= table_data[4].get_text()
         print 'Apples closing price for {} was {}'.format(date.strip(), closing.strip())
-
+        print
 
 
         #print table_data.contents[0].get_text()
