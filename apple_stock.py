@@ -8,19 +8,26 @@ import urllib2
 from bs4 import BeautifulSoup
 
 
-url = 'https://www.nasdaq.com/symbol/aapl/historical'
-page = urllib2.urlopen(url)
-soup = BeautifulSoup(page.read(), 'lxml')
-tabledata = soup.tr
-tabledata.decompose()
-apple_data = soup.find_all('tbody')
+URL = 'https://www.nasdaq.com/symbol/aapl/historical'
+PAGE = urllib2.urlopen(URL)
+SOUP = BeautifulSoup(PAGE.read(), 'lxml')
+TABLE_DATA = SOUP.tr
+TABLE_DATA.decompose()
+APPLE_DATA = SOUP.find_all('tbody')
 
-for table in apple_data:
+print '*=' * 30
+print
+print 'Apples\' stock closing prices for the last 90 days.'
+print
+print '*=' * 30
+print
+
+for table in APPLE_DATA:
     table_rows = table.find_all('tr')
     for row in table_rows:
         table_data = row.find_all('td')
         date = table_data[0].get_text()
         closing = table_data[4].get_text()
-        print 'Apples closing price for {} was {}'.format(
+        print 'Apples\' stock closing price for {} was {}'.format(
             date.strip(), closing.strip())
         print
